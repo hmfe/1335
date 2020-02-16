@@ -81,26 +81,29 @@
 }
 
 .del-btn {
-  background-color: gold;
-  border: none;
-  color: white;
-  line-height: 30px;
+  background-image: linear-gradient(to right, #F4B05D, #F19639);
+  border: 1px solid #858585;
+  color: #000;
+  font-weight: bold;
+  line-height: 20px;
   display: block;
-  padding: 10px 5px 10px 20px;
+  padding: 5px 5px 5px 10px;
 }
 
 .del-btn::before {
-  content: 'Delete';
-  padding-right: 20px;
+  content: "Delete";
+  padding-right: 10px;
 }
 
 .del-btn::after {
-  content: "\274c";
+  content: "x";
   display: inline-block;
-  width: 30px;
-  height: 30px;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  border-radius: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
   background-color: #ffffff;
+  color: black;
+  font-size: 25px;
+  font-weight: lighter;
+  line-height: 30px;
 }

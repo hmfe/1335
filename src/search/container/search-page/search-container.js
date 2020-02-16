@@ -19,51 +19,56 @@ class SearchContainer extends React.Component {
 
         this.state = {
             searchResults: [],
-            userInput: { name: '' },
+            searchKeyword: '',
             activeSuggestion: 0,
             showSuggestions: false,
-            showDetails: false,
             historyItems: []
         }
     }
 
     handleOnUserInputChange(userInput) {
-        this.setState({
-            userInput,
-            showSuggestions: true,
-            showDetails: false
-        });
         if (userInput !== '') {
+            this.setState({ searchKeyword: userInput });
             const countries$ = this.searchAPIDebounced(userInput);
             countries$.then(c => {
-                const startsWith = c.filter(c => c.name.toLowerCase().startsWith(userInput.toLowerCase()));
-                this.setState({ searchResults: startsWith })
+                if (c && c.length > 0) {
+                    const startsWith = c.filter(c => c.name.toLowerCase().startsWith(userInput.toLowerCase()));
+                    this.setState({
+                        showSuggestions: true,
+                        searchResults: startsWith
+                    });
+                } else {
+                    this.setState({
+                        showSuggestions: true,
+                        searchResults: []
+                    });
+                }
             });
-        } else {
-            this.setState({ searchResults: [] })
         }
     }
     handleOnCountrySelected(e) {
         const index = this.state.searchResults.map(e => e.name).indexOf(e.currentTarget.innerText);
-        this.setState({
-            activeSuggestion: 0,
-            showSuggestions: false,
-            userInput: this.state.searchResults[index],
-            inputValue: this.state.searchResults[index].name,
-            showDetails: true,
-            historyItems: [...this.state.historyItems, { name: this.state.searchResults[index].name, dateModified: new Date() }]
-        });
+        if (this.state.searchResults[index]) {
+            this.setState({
+                activeSuggestion: 0,
+                showSuggestions: false,
+                userInput: this.state.searchResults[index],
+                searchKeyword: '',
+                historyItems: [...this.state.historyItems, { name: this.state.searchResults[index].name, dateModified: new Date() }]
+            });
+        }
     }
     handleOnKeyDownChange(e) {
         // User pressed the enter key
         if (e.keyCode === 13) {
-            this.setState({
-                activeSuggestion: 0,
-                showSuggestions: false,
-                userInput: this.state.searchResults[this.state.activeSuggestion],
-                showDetails: true,
-                historyItems: [...this.state.historyItems, { name: this.state.searchResults[this.state.activeSuggestion].name, dateModified: new Date() }]
-            });
+            if (this.state.searchKeyword !== '' && this.state.searchResults[this.state.activeSuggestion]) {
+                this.setState({
+                    activeSuggestion: 0,
+                    showSuggestions: false,
+                    searchKeyword: '',
+                    historyItems: [...this.state.historyItems, { name: this.state.searchResults[this.state.activeSuggestion].name, dateModified: new Date() }]
+                });
+            }
         }
         // User pressed the up arrow
         else if (e.keyCode === 38) {
@@ -80,6 +85,10 @@ class SearchContainer extends React.Component {
             }
 
             this.setState({ activeSuggestion: this.state.activeSuggestion + 1 });
+        }
+        // User pressed Esc key
+        else if (e.keyCode === 27) {
+            this.setState({ showSuggestions: false });
         }
     }
 
@@ -109,18 +118,18 @@ class SearchContainer extends React.Component {
                             <SearchInput
                                 onUserInputChange={this.handleOnUserInputChange}
                                 onKeyDownChange={this.handleOnKeyDownChange}
-                                userInput={this.state.userInput}>
+                                searchKeyword={this.state.searchKeyword}>
                             </SearchInput>
 
                             <SuggestionsList
                                 searchResults={this.state.searchResults}
                                 activeSuggestion={this.state.activeSuggestion}
                                 showSuggestions={this.state.showSuggestions}
-                                userInput={this.state.userInput}
+                                searchKeyword={this.state.searchKeyword}
                                 onCountrySelected={this.handleOnCountrySelected}>
                             </SuggestionsList>
                         </summary>
-                        <section className='clearfix'>
+                        <section>
                             <SearchHistory
                                 onClearHistory={this.handleClearHistory}
                                 searchHistoryItems={this.state.historyItems}
@@ -133,7 +142,7 @@ class SearchContainer extends React.Component {
                 </main>
 
                 <footer>
-                    <p className="mt-5 mb-3 text-muted text-center">&copy; 2018 - 2019</p>
+                    <p className="mt-5 mb-3 text-muted text-center">&copy; 2020</p>
                 </footer>
             </div >
         )

@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 
 class SuggestionsList extends React.Component {
     static propTypes = {
-        searchResults: PropTypes.array
+        searchResults: PropTypes.array,
+        searchKeyword: PropTypes.string
     };
 
     static defaultProps = {
@@ -20,10 +21,10 @@ class SuggestionsList extends React.Component {
     }
 
     render() {
-        if (this.props.showSuggestions && this.props.userInput !== '') {
+        if (this.props.showSuggestions) {
             if (this.props.searchResults != null && this.props.searchResults.length > 0) {
                 return (
-                    <ul className="list-group overflow-auto">
+                    <ol role="listitem" className="list-group overflow-auto">
                         {this.props.searchResults.map((suggestion, index) => {
                             let className = 'list-group-item';
 
@@ -34,11 +35,12 @@ class SuggestionsList extends React.Component {
 
                             return (
                                 <li className={className} key={suggestion.alpha2Code} onClick={this.onCountrySelection}>
-                                    {suggestion.name}
+                                    <b>{suggestion.name.slice(0, this.props.searchKeyword.length)}</b>
+                                    {suggestion.name.slice(this.props.searchKeyword.length)}
                                 </li>
                             );
                         })}
-                    </ul>
+                    </ol>
                 );
             } else {
                 return (
