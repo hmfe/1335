@@ -40,3 +40,8 @@ ul {
 .overflow-auto {
     overflow: auto !important;
 }
+
+.list-group-item-danger {
+    color: #721c24;
+    background-color: #f5c6cb;
+}
