@@ -18,26 +18,24 @@ class SearchHistory extends React.Component {
 
             <article>
                 <hr></hr>
-                <section className="clearfix">
-                    <h2 style={{fontSize: '24px'}} className="float-left"> Search History: </h2>
-                    <div className="float-right">
-                        <button type="button" className="btn btn-link" onClick={() => this.clearHistory()}> Clear History </button>
-                    </div>
+                <section style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                    <h2 style={{ fontSize: '24px' }}> Search History: </h2>
+                    <button type="button" className="btn btn-link" onClick={() => this.clearHistory()}> Clear History </button>
                 </section>
                 <hr></hr>
-                <ul className="list-group overflow-auto">
+                <ul>
                     {this.props.searchHistoryItems.map((item, index) => {
                         return (
-                            <li className='list-group-item clearfix' key={item.name+index}>
-                                <h3 style={{fontSize: "16px"}}>{item.name}</h3>
-                                <time className="badge badge-info ml-md-2" dateTime="item.dateModified.toLocaleTimeString('sv-SE')">
-                                    {item.dateModified.toLocaleTimeString("sv-SE")}
-                                </time>
-                                <span className="float-right button-group">
+                            <React.Fragment key={item.name + index}>
+                                <li style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }} key={item.name + index}>
+                                    <h3 style={{ fontSize: "16px", marginRight: 'auto' }}>{item.name}</h3>
+                                    <time style={{ marginRight: '20px', fontSize: '12px', color: 'grey' }} dateTime="item.dateModified.toLocaleTimeString('sv-SE')">
+                                        {item.dateModified.toLocaleTimeString("sv-SE", { dateStyle: 'short', timeStyle : 'short', hour12: 'true' })}
+                                    </time>
                                     <button type="button" aria-label="Delete" className="del-btn" onClick={() => this.onDeleteRecord(item)}></button>
-                                </span>
-
-                            </li>
+                                </li>
+                                <hr></hr>
+                            </React.Fragment>
                         );
                     })}
                 </ul>
