@@ -1,4 +1,5 @@
 import React from "react";
+import './search-input.css';
 
 class SearchInput extends React.Component {
 
@@ -22,7 +23,7 @@ class SearchInput extends React.Component {
         <input type="text"
           list="suggestionList"
           id="countryName"
-          className="form-control"
+          className="hm-input"
           placeholder="Type country name ..."
           onChange={e => this.handleTextChange(e.target.value)}
           onKeyDown={this.onKeyDown}

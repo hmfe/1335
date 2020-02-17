@@ -1,4 +1,5 @@
 import React from 'react'
+import './search-history.css';
 
 class SearchHistory extends React.Component {
     constructor() {
@@ -17,10 +18,9 @@ class SearchHistory extends React.Component {
         return (
 
             <article>
-                <hr></hr>
-                <section style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <section className="hisotryTitle">
                     <h2 style={{ fontSize: '24px' }}> Search History: </h2>
-                    <button type="button" className="btn btn-link" onClick={() => this.clearHistory()}> Clear History </button>
+                    <button type="button" className="hm-button hm-link" onClick={() => this.clearHistory()}> Clear History </button>
                 </section>
                 <hr></hr>
                 <ul>
