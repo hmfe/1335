@@ -25,13 +25,13 @@ class SuggestionsList extends React.Component {
         if (this.props.showSuggestions) {
             if (this.props.searchResults != null && this.props.searchResults.length > 0) {
                 return (
-                    <ol role="listitem" className="list-group overflow-auto">
+                    <ol className="suggestion-list">
                         {this.props.searchResults.map((suggestion, index) => {
-                            let className = 'list-group-item';
+                            let className = 'suggestion-item';
 
                             //Flag the active suggestion with a class
                             if (index === this.props.activeSuggestion) {
-                                className = "list-group-item active";
+                                className = "suggestion-item active";
                             }
 
                             return (
@@ -45,8 +45,8 @@ class SuggestionsList extends React.Component {
                 );
             } else {
                 return (
-                    <ul className="list-group">
-                        <li className="list-group-item list-group-item-danger">
+                    <ul className="suggestion-list">
+                        <li className="suggestion-item danger">
                             No suggestions available, please refine your search inputs!
                         </li>
                     </ul>

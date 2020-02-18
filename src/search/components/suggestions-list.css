@@ -2,46 +2,44 @@ ul {
     padding-left: 0px;
 }
 
-.list-group {
+.suggestion-list {
     max-height: 300px;
     margin-bottom: 10px;
     overflow: auto;
-    -webkit-overflow-scrolling: touch;
     margin-top: 0px;
     display: flex;
     flex-direction: column;
     padding-left: 0;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0.25rem
 }
 
-.list-group-item.active {
+.suggestion-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border-top-width: 0;
+}
+
+.suggestion-item:last-of-type{
+    border-bottom-width: 0;
+}
+
+.suggestion-item.active {
     z-index: 2;
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
 }
 
-.list-group-item:first-child {
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
-}
-
-.list-group-item {
-    position: relative;
-    display: block;
-    padding: 0.75rem 1.25rem;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-}
-
-.list-group-item+.list-group-item {
-    border-top-width: 0;
-}
-
-.overflow-auto {
-    overflow: auto !important;
-}
-
-.list-group-item-danger {
+.danger {
     color: #721c24;
     background-color: #f5c6cb;
 }
