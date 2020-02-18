@@ -36,7 +36,10 @@ class SuggestionsList extends React.Component {
 
                             return (
                                 <li className={className} key={suggestion.alpha2Code} onClick={this.onCountrySelection}>
-                                    <b>{suggestion.name.slice(0, this.props.searchKeyword.length)}</b>
+                                    {/* Bold the matching characters as the keyword lenght */} 
+                                    <b>
+                                        {suggestion.name.slice(0, this.props.searchKeyword.length)}
+                                    </b>
                                     {suggestion.name.slice(this.props.searchKeyword.length)}
                                 </li>
                             );

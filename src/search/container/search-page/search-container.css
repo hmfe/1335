@@ -12,7 +12,11 @@
   outline: 1px solid slategrey;
 }
 
-.hm-footer {
+header {
+  text-align: center;
+}
+
+footer p {
   color: #6c757d !important;
   text-align: center !important;
   margin-top: 3rem !important;
