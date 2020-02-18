@@ -1,52 +1,29 @@
+.hm-input-group {
+  position: relative;
+}
 
-.form-label-group {
-    position: relative;
-  }
-  
-  .form-label-group>input, .form-label-group>label {
-    padding: var(--input-padding-y) var(--input-padding-x);
-  }
-  
-  .form-label-group>label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    margin-bottom: 0;
-    /* Override default `<label>` margin */
-    line-height: 0.5;
-    color: #495057;
-    border: 1px solid transparent;
-    border-radius: .25rem;
-    transition: all .1s ease-in-out;
-    cursor: text;
-  }
-  
-  .form-label-group input::-webkit-input-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input:-ms-input-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input::-moz-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input::placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input:not(:placeholder-shown) {
-    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (1 / 4));
-    padding-bottom: calc(var(--input-padding-y) / 3);
-  }
-  
-  .form-label-group input:not(:placeholder-shown)~label {
-    padding-top: calc(var(--input-padding-y) / 3);
-    padding-bottom: calc(var(--input-padding-y) / 3);
-    font-size: 12px;
-    color: #777;
-  }
+.hm-input {
+  width: 100%;
+  max-width: 1115px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  padding: 15px 12px 4px 12px;
+}
+
+.hm-input-label {
+  position: absolute;
+  top: 5px;
+  left: 12px;
+  line-height: 0.5;
+  border: none;
+  cursor: text;
+  font-size: 12px;
+  color: #777;
+}

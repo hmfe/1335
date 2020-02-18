@@ -19,18 +19,17 @@ class SearchInput extends React.Component {
   render() {
 
     return (
-      <div className="form-label-group">
+      <div className="hm-input-group">
         <input type="text"
           list="suggestionList"
           id="countryName"
           className="hm-input"
-          placeholder="Type country name ..."
           onChange={e => this.handleTextChange(e.target.value)}
           onKeyDown={this.onKeyDown}
           value={this.props.searchKeyword}
           required
           autoFocus></input>
-        <label htmlFor="countryName">Country Name</label>
+        <label htmlFor="countryName" className="hm-input-label">Country Name</label>
       </div>
     );
   }

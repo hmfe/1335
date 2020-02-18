@@ -25,7 +25,9 @@ class SearchContainer extends React.Component {
             historyItems: []
         }
     }
-
+    
+    // accepts userInput string, debounce and call the api 
+    // and then set the the result to the child component
     handleOnUserInputChange(userInput) {
         this.setState({ searchKeyword: userInput });
         if (userInput !== '') {
@@ -51,6 +53,8 @@ class SearchContainer extends React.Component {
             });
         }
     }
+
+    // handle mouse selection
     handleOnCountrySelected(e) {
         const index = this.state.searchResults.map(e => e.name).indexOf(e.currentTarget.innerText);
         if (this.state.searchResults[index]) {
