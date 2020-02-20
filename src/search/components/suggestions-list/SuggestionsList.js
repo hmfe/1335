@@ -1,23 +1,24 @@
 import React from "react";
-import PropTypes from "prop-types";
-import './suggestions-list.css';
+import { arrayOf,  number, string, bool } from 'prop-types';
+import { Country } from '../../../prototypes'
+import './SuggestionsList.css';
 
 class SuggestionsList extends React.Component {
     static propTypes = {
-        searchResults: PropTypes.array,
-        searchKeyword: PropTypes.string
+        searchResults: arrayOf(Country),
+        activeSuggestion: number,
+        showSuggestions: bool,
+        searchKeyword: string
     };
 
     static defaultProps = {
-        searchResults: []
+        searchResults: [],
+        activeSuggestion: 0,
+        showSuggestions: false,
+        searchKeyword: ''
     };
 
-    constructor() {
-        super();
-        this.onCountrySelection = this.onCountrySelection.bind(this);
-    }
-
-    onCountrySelection(event) {
+    onCountrySelection = (event) => {
         this.props.onCountrySelected(event);
     }
 
@@ -36,7 +37,7 @@ class SuggestionsList extends React.Component {
 
                             return (
                                 <li className={className} key={suggestion.alpha2Code} onClick={this.onCountrySelection}>
-                                    {/* Bold the matching characters as the keyword lenght */} 
+                                    {/* Bold the matching characters as the keyword lenght */}
                                     <b>
                                         {suggestion.name.slice(0, this.props.searchKeyword.length)}
                                     </b>

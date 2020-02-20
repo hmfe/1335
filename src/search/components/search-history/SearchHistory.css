@@ -27,6 +27,7 @@
     line-height: 20px;
     display: block;
     padding: 5px 5px 5px 10px;
+    cursor: pointer;
 }
 
 .del-btn::before {

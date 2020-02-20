@@ -22,3 +22,10 @@ footer p {
   margin-top: 3rem !important;
   margin-bottom: 1rem !important;
 }
+
+.alert {
+  margin: 0;
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}

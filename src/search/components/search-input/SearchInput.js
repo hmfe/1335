@@ -1,12 +1,15 @@
 import React from "react";
-import './search-input.css';
+import PropTypes from "prop-types";
+import './SearchInput.css';
 
 class SearchInput extends React.Component {
+  static propTypes = {
+    searchKeyword: PropTypes.string,
+  };
 
-  constructor(props) {
-    super(props);
-    this.handleTextChange = this.handleTextChange.bind(this);
-  }
+  static defaultProps = {
+    searchKeyword: []
+  };
 
   handleTextChange = async userInput => {
     this.props.onUserInputChange(userInput);

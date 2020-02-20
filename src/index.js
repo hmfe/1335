@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import SearchContainer from './search/container/search-page/search-container';
+import SearchPage from './search/search-page/SearchPage';
 
-ReactDOM.render(<SearchContainer />, document.getElementById('root'));
+ReactDOM.render(<SearchPage />, document.getElementById('root'));
