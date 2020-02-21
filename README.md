@@ -1,3 +1,46 @@
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Features
+### API used
+
+Public API https://restcountries-v1.p.rapidapi.com/ is used to get coutries data by country name
+
+###  Frontend
+HTML5
+  Semantic markup
+  SEO support
+Accessibilty: 
+  Scroll through the items using the keyboard
+  ESC will close the list
+  Focus on input
+  Tab
+  html semantic 
+CSS3: 
+  Responsive design
+  No ready made frameworks
+JS: 
+  Using react / javascript
+  Used debounce to minimize stress on API
+  Added tests using Jest & React Testing Library
+
+## Live Demo
+
+https://hmfe-1335.web.app/
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.<br>
+
 # WORK TASK #
 
 **Please read this document thoroughly** and plan your work accordingly.
