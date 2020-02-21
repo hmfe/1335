@@ -1,11 +1,11 @@
 import React from "react";
-import { arrayOf,  number, string, bool } from 'prop-types';
+import { arrayOf,  number, string, bool, shape } from 'prop-types';
 import { Country } from '../../../prototypes'
 import './SuggestionsList.css';
 
 class SuggestionsList extends React.Component {
     static propTypes = {
-        searchResults: arrayOf(Country),
+        searchResults: arrayOf(shape(Country)),
         activeSuggestion: number,
         showSuggestions: bool,
         searchKeyword: string

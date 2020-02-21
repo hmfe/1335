@@ -4,7 +4,7 @@ import './SearchHistory.css';
 
 class SearchHistory extends React.Component {
     static propTypes = {
-        searchHistoryItems: PropTypes.array,
+        searchHistoryItems: PropTypes.array
     };
 
     static defaultProps = {
@@ -24,7 +24,7 @@ class SearchHistory extends React.Component {
             <article>
                 <section className="hisotryTitle">
                     <h2> Search History: </h2>
-                    <button type="button" className="hm-link" onClick={() => this.clearHistory()}> Clear History </button>
+                    <button type="button" className="hm-link" onClick={() => this.clearHistory()} title='Clear'>Clear History</button>
                 </section>
                 <hr></hr>
                 <ul>
@@ -36,7 +36,7 @@ class SearchHistory extends React.Component {
                                     <time dateTime="country.dateModified.toLocaleTimeString('sv-SE')">
                                         {country.dateModified.toLocaleTimeString("sv-SE", { dateStyle: 'short', timeStyle: 'short', hour12: 'true' })}
                                     </time>
-                                    <button type="button" aria-label="Delete" className="del-btn" onClick={() => this.onDeleteHistoryItem(country)}></button>
+                                    <button type="button" aria-label="Delete" data-testid={country.alpha2Code} className="del-btn" onClick={() => this.onDeleteHistoryItem(country)}></button>
                                 </li>
                                 <hr></hr>
                             </React.Fragment>
