@@ -1,0 +1,27 @@
+.hm-input-group {
+  position: relative;
+}
+
+.hm-input {
+  /* -10px of the add right-padding added */
+  width: calc(100% - 12px);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 15px 0px 4px 12px;
+}
+
+.hm-input-label {
+  position: absolute;
+  top: 5px;
+  left: 12px;
+  line-height: 0.5;
+  border: none;
+  cursor: text;
+  font-size: 12px;
+  color: #777;
+}

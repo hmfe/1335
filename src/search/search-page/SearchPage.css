@@ -1,0 +1,31 @@
+::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+header {
+  text-align: center;
+}
+
+footer p {
+  color: #6c757d !important;
+  text-align: center !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.alert {
+  margin: 0;
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
